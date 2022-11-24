@@ -5,8 +5,8 @@ import useAuth from '../hooks/useAuth';
 import Alerta from '../components/Alerta';
 import clienteAxios from '../config/axios';
 
-import imgLogin from '../assets/NeoDevs.png'
-import fondoLogin from '../assets/NeoDevs.png'
+import imgLogin from '../assets/neodevs.png'
+import fondoLogin from '../assets/neodevs.png'
 
 
 const Login = () => {

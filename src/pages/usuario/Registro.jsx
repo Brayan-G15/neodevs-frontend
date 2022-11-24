@@ -5,7 +5,7 @@ import clienteAxios from '../../config/axios';
 import Alerta from '../../components/Alerta';
 
 import imagenRegistro from '../../assets/NeoDevs.png'
-import cajaCarton from '../../assets/NeoDevs.png'
+import cajaCarton from '../../assets/neodevs.png'
 
 const Registro = () => {
 
