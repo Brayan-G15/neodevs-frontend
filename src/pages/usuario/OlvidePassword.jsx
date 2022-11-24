@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import imagenOlvide from '../../assets/imagen-olvide.png'
-import fondoOlvide from '../../assets/candado.png'
 
 const OlvidePassword = () => {
     return (

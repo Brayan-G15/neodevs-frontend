@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
-import logo from "../assets/logo-empresa.png";
-import svg60 from "../assets/svg/icons8-menu-30.svg";
 
 const Navbar = ({ texto, ruta, id, perfil, cart }) => {
 

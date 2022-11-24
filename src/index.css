@@ -134,3 +134,69 @@
 .btm-delete{
     width: 50%;
 }
+
+/*-----Login------*/
+.main-container-login{
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+.title-login{
+    font-size: 35px;
+    color: #114848;
+}
+.form-login{
+    background-color: white;
+    box-shadow: 3px 3px 5px 5px #605a5a, 1px 3px 9px #706b6b;
+    border-radius: 10px;
+}
+.btn-login{
+    background-color: #114848;
+}
+
+.img-logo-login {
+    width: 40%;
+    height: 50%;
+    background-color: white;
+}
+.img-logo-login img {
+    border-radius: 10px;
+}
+.form-register{
+    box-shadow: 3px 3px 5px 5px #605a5a, 1px 3px 9px #706b6b;
+}
+.btn-register{
+    background-color: #114848;
+}
+
+@media(max-width: 1023px){
+    .img-logo-login{
+        display: none;
+    }
+}
+
+/*------Register-------*/
+.title-register{
+    font-size: 35px;
+    color: #114848;
+}
+.main-container-register{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: row-reverse;
+    
+}
+.container-img-register{
+    width: 40%;
+    height: 50%;
+}
+.container-img-register img {
+    width: 100%;
+    height: 100%;
+}
+@media(max-width: 1023px){
+    .container-img-register{
+        display: none;
+    }
+}
