@@ -64,6 +64,14 @@
   box-shadow: 3px 3px 5px 5px #605a5a, 1px 3px 9px #706b6b;
   border-radius: 8px;
 }
+.container-product-logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container-product-logo img{
+    width: initial;
+}
 
 .btn-agg-cart{
     background-color: #0e7171;

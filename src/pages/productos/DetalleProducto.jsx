@@ -6,11 +6,20 @@ import useProductos from "../../hooks/useProductos";
 
 import Navbar from "../../components/Navbar";
 import EditarProductos from "./EditarProductos";
+import { DataContext } from "../../context/DataProvider";
+import { useContext } from "react";
 
-const DetalleProducto = () => {
+const DetalleProducto = ({producto}) => {
+  
+
 
   const param = useParams();
   const [modalEditar, setModalEditar] = useState(false);
+  const addCart = (id) => {
+    provider.setCarritoo([...provider.carrito, id]);
+}
+
+
 
   const {
     obtenerProducto,
@@ -66,7 +75,20 @@ const DetalleProducto = () => {
       });
   };
   
-  const { nombre, description, precio, stock, image } = productoState;
+  const { _id, nombre, description, precio, stock, image } = productoState;
+
+  
+  const provider = useContext(DataContext);
+  const adicionarProductoCarrito = (producto) => {
+    // console.log('agregado')
+    provider.setCarritoo([...provider.carrito, producto]);  
+    
+    // console.log(stocks)  
+};
+
+// const sumaStock = () =>{
+//   return stock -11
+// }
   //console.log(image);
   return (
     <>
@@ -101,8 +123,18 @@ const DetalleProducto = () => {
                 className="bg-blue-700 text-white btn-edit p-2 text-xl uppercase rounded-md font-semibold hover:bg-blue-600 transition-colors w-full md:w-72 lg:w-80"
                 onClick={(e) => setModalEditar(true)}
               >
+            
                 Editar
               </button>
+              {/* <NavLink to={`carrito-compra/${_id}`}> */}
+                <button
+                    onClick={() => addCart(producto)}
+                    type="button"
+                    className="bg-sky-500 text-white btn-agg-cart p-2 uppercase font-medium w-full hover:bg-sky-700 transition-colors"
+                >
+                    Añadir al Carritoo
+                </button> 
+              {/* </NavLink>  */}
               <button
                 className="bg-red-700 text-white btn-delete p-2 text-xl uppercase rounded-md font-semibold hover:bg-red-600 transition-colors w-full md:w-72 lg:w-80"
                 onClick={handelClick}

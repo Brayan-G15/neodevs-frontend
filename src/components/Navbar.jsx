@@ -1,8 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import { useContext } from "react";
+import { DataContext } from "../context/DataProvider";
 
 const Navbar = ({ texto, ruta, id, perfil, cart }) => {
+
+  const provider = useContext(DataContext);
+
+  const [cantidad, setCantidad] = useState(provider.carrito.length);
+
+  useEffect(() => {
+    setCantidad(provider.carrito.length)
+  });
 
   const { cerrarSesion } = useAuth();
   const [ver, setVer] = useState(false);
@@ -18,22 +28,7 @@ const Navbar = ({ texto, ruta, id, perfil, cart }) => {
           className="my-3 p-3 h-10 rounded-lg w-1/2 border-2"
         />
         <div className="flex gap-3">
-          {/* {!venta && (
-<button type="button" className="hover:scale-110 text-black p-2 flex items-center cursor-pointer font-medium hover:border-b-blue-500 hover:border-b-2 transition-all" onClick={mostrarAside}>
-<svg
-xmlns="http://www.w3.org/2000/svg"
-fill="none"
-viewBox="0 0 24 24"
-stroke-width="1.5"
-stroke="currentColor"
-class="w-6 h-6"
->
-<path
-stroke-linecap="round"
-stroke-linejoin="round"
-d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"/>
-</svg>
-</button>)} */}
+
           {!perfil && (
             <button type="button" className="hover:scale-110 transition-all">
               <Link
@@ -70,9 +65,9 @@ d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.7
           </button>
           <button type="button" >
               <Link
-              to={`/shopping/${cart}`}
+              to={`/productos/carrito-compra/${id}`}
               className="btn-cart">
-                CART<span className="count-shopping-cart">0</span>
+                CART<span className="count-shopping-cart">{cantidad}</span>
               </Link>
             </button>
           <button
@@ -84,7 +79,7 @@ d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.7
               className="p-2 text-center w-full flex"
               onClick={cerrarSesion}
             >
-              Cerrar Sesion
+              Logout
             </Link>
           </button>
         </div>

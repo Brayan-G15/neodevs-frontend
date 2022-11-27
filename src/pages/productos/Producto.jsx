@@ -1,12 +1,21 @@
 import { NavLink } from "react-router-dom";
-const Producto = ({ producto }) => {
-    const { _id, nombre, precio, stock, image } = producto;
+import{ DataContext } from '../../context/DataProvider';
+import { useContext } from "react";
+import { useRoutes } from "react-router-dom";
+import { Store } from '../../utils/Store';
+
+const Producto = ({producto} ) => {
+     const { _id, nombre, precio, stock, image } = producto;
     //console.log(producto);
+
     return (
         <div className="container-product-flex">
-            <NavLink to={`detalle-producto/${_id}`}>
-                <img src={image.url} alt={nombre} className="h-56 w-96 border-b" />
-            </NavLink>
+            <div className="container-product-logo">
+                <NavLink to={`detalle-producto/${_id}`}>
+                    <img src={image.url} alt={nombre} className="h-56 w-96 border-b" />
+                </NavLink>
+            </div>
+            
             <NavLink
                 id={_id}
                 to={`detalle-producto/${_id}`}
@@ -19,17 +28,20 @@ const Producto = ({ producto }) => {
                     <p className="font-bold text-lg text-ellipsis overflow-hidden">
                         Precio : <span className="font-normal block">${precio}</span>{" "}
                     </p>
-                    <p className="font-bold text-lg">
+                    {/* <p className="font-bold text-lg">
                         Stock : <span className="font-normal">{stock}</span>{" "}
-                    </p>
+                    </p> */}
                 </div>
             </NavLink>
-            <button
-                type="button"
-                className="bg-sky-500 text-white btn-agg-cart p-2 uppercase font-medium w-full hover:bg-sky-700 transition-colors"
-            >
-                Añadir al Carrito
-            </button>
+            {/* <NavLink to={`carrito-compra/${_id}`}>
+                <button
+                    onClick={() => {adicionarProductoCarrito(producto) }}
+                    type="button"
+                    className="bg-sky-500 text-white btn-agg-cart p-2 uppercase font-medium w-full hover:bg-sky-700 transition-colors"
+                >
+                    Añadir al Carrito
+                </button> 
+            </NavLink>  */}
         </div>
     );
 };
