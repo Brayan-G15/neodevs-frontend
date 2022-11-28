@@ -27,10 +27,10 @@ const Navbar = ({ texto, ruta, id, perfil, cart }) => {
           placeholder="Encuentra automoviles, computadores y mas..."
           className="my-3 p-3 h-10 rounded-lg w-1/2 border-2"
         />
-        <div className="flex gap-3">
+        <div className="flex gap-3 " >
 
           {!perfil && (
-            <button type="button" className="hover:scale-110 transition-all">
+            <button type="button" className="hover:scale-110 transition-all display-none">
               <Link
                 to={`/perfil`}
                 className="text-black p-2 w-full flex cursor-pointer font-medium hover:border-b-blue-500 hover:border-b-2 transition-all"

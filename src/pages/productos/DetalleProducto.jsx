@@ -96,7 +96,7 @@ const DetalleProducto = ({producto}) => {
       <div className="main-container-details">
         {eliminado && <Navigate to="/productos" />}
         <h1 className="font-bold text-6xl title-details uppercase text-center w-full mx-auto mb-4 break-words mt-24">
-          Product <span className="text-sky-700">Description</span>
+          Product Description
         </h1>
         <div className="container-deatails ">
           <div className="img-details">
@@ -115,7 +115,7 @@ const DetalleProducto = ({producto}) => {
                 Precio : $<span className="font-normal">{precio}</span>
               </p>
               <p className="text-xl font-semibold">
-                Cantidad : <span className="font-normal">{stock}</span>
+                U/D : <span className="font-normal">{stock}</span>
               </p>
             </div>
             <div className="flex container-btn-details justify-center gap-4 mt-12 mb-4 flex-wrap">
@@ -124,7 +124,7 @@ const DetalleProducto = ({producto}) => {
                 onClick={(e) => setModalEditar(true)}
               >
             
-                Editar
+                Edit
               </button>
               {/* <NavLink to={`carrito-compra/${_id}`}> */}
                 <button
@@ -132,14 +132,14 @@ const DetalleProducto = ({producto}) => {
                     type="button"
                     className="bg-sky-500 text-white btn-agg-cart p-2 uppercase font-medium w-full hover:bg-sky-700 transition-colors"
                 >
-                    Añadir al Carritoo
+                    Add to cart
                 </button> 
               {/* </NavLink>  */}
               <button
                 className="bg-red-700 text-white btn-delete p-2 text-xl uppercase rounded-md font-semibold hover:bg-red-600 transition-colors w-full md:w-72 lg:w-80"
                 onClick={handelClick}
               >
-                Eliminar
+                Delete
               </button>
             </div>
           </div>
