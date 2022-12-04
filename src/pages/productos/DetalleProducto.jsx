@@ -3,21 +3,19 @@ import { useParams, Navigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 import useProductos from "../../hooks/useProductos";
+import useVenta from '../../hooks/useVenta';
 
 import Navbar from "../../components/Navbar";
 import EditarProductos from "./EditarProductos";
-import { DataContext } from "../../context/DataProvider";
-import { useContext } from "react";
+// import { DataContext } from "../../context/DataProvider";
+// import { useContext } from "react";
 
 const DetalleProducto = ({producto}) => {
   
-
+  const { añadirProducto } = useVenta();
 
   const param = useParams();
   const [modalEditar, setModalEditar] = useState(false);
-  const addCart = (id) => {
-    provider.setCarritoo([...provider.carrito, id]);
-}
 
 
 
@@ -78,18 +76,6 @@ const DetalleProducto = ({producto}) => {
   const { _id, nombre, description, precio, stock, image } = productoState;
 
   
-  const provider = useContext(DataContext);
-  const adicionarProductoCarrito = (producto) => {
-    // console.log('agregado')
-    provider.setCarritoo([...provider.carrito, producto]);  
-    
-    // console.log(stocks)  
-};
-
-// const sumaStock = () =>{
-//   return stock -11
-// }
-  //console.log(image);
   return (
     <>
       <Navbar texto="Productos" ruta="" />
@@ -120,7 +106,7 @@ const DetalleProducto = ({producto}) => {
             </div>
             <div className="flex container-btn-details justify-center gap-4 mt-12 mb-4 flex-wrap">
               <button
-                className="bg-blue-700 text-white btn-edit p-2 text-xl uppercase rounded-md font-semibold hover:bg-blue-600 transition-colors w-full md:w-72 lg:w-80"
+                className="bg-blue-700 text-white btn-edit p-2 text-xl uppercase rounded-md font-semibold hover:bg-blue-600 transition-colors w-full "
                 onClick={(e) => setModalEditar(true)}
               >
             
@@ -128,7 +114,7 @@ const DetalleProducto = ({producto}) => {
               </button>
               {/* <NavLink to={`carrito-compra/${_id}`}> */}
                 <button
-                    onClick={() => addCart(producto)}
+                    onClick={e => añadirProducto(_id)}
                     type="button"
                     className="bg-sky-500 text-white btn-agg-cart p-2 uppercase font-medium w-full hover:bg-sky-700 transition-colors"
                 >
@@ -136,7 +122,7 @@ const DetalleProducto = ({producto}) => {
                 </button> 
               {/* </NavLink>  */}
               <button
-                className="bg-red-700 text-white btn-delete p-2 text-xl uppercase rounded-md font-semibold hover:bg-red-600 transition-colors w-full md:w-72 lg:w-80"
+                className="bg-red-700 text-white btn-delete p-2 text-xl uppercase rounded-md font-semibold hover:bg-red-600 transition-colors w-full "
                 onClick={handelClick}
               >
                 Delete

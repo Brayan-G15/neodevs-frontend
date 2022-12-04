@@ -54,7 +54,7 @@ const Login = () => {
 
     return (
         <div className='flex main-container-login w-full'>
-            <div className='flex flex-col justify-center container-login items-center lg:w-2/4 mr-10 md:flex-row '>
+            <div className='flex flex-col justify-center items-center lg:w-2/4 mr-10 md:flex-row '>
                 <img src={fondoLogin} alt="imagen login" className='relative w-0 md:w-1/2 lg:w-0 sm:w-0' />
                 <div>
                     <h1 className='font-bold title-login text-6xl uppercase text-center md:w-2/3 mx-auto'> ¡Hola! ingeresa tu usuario <span className='text-sky-700'></span></h1>

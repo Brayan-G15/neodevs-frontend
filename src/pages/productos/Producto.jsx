@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom";
-import{ DataContext } from '../../context/DataProvider';
-import { useContext } from "react";
-import { useRoutes } from "react-router-dom";
-import { Store } from '../../utils/Store';
+import useVenta from '../../hooks/useVenta'
+import { formatearCantidad } from "../../helpers/formatearCantidad";
+
 
 const Producto = ({producto} ) => {
      const { _id, nombre, precio, stock, image } = producto;
     //console.log(producto);
+     const { añadirProducto } = useVenta();
 
     return (
         <div className="container-product-flex">
@@ -26,22 +26,20 @@ const Producto = ({producto} ) => {
                 </div>
                 <div className="my-3">
                     <p className="font-bold text-lg text-ellipsis overflow-hidden">
-                        Precio : <span className="font-normal block">${precio}</span>{" "}
+                        Precio : <span className="font-normal block">{formatearCantidad(precio)}</span>{" "}
                     </p>
-                    {/* <p className="font-bold text-lg">
+                    <p className="font-bold text-lg">
                         Stock : <span className="font-normal">{stock}</span>{" "}
-                    </p> */}
+                    </p>
                 </div>
             </NavLink>
-            {/* <NavLink to={`carrito-compra/${_id}`}>
-                <button
-                    onClick={() => {adicionarProductoCarrito(producto) }}
-                    type="button"
-                    className="bg-sky-500 text-white btn-agg-cart p-2 uppercase font-medium w-full hover:bg-sky-700 transition-colors"
-                >
-                    Añadir al Carrito
-                </button> 
-            </NavLink>  */}
+            {/* <button
+                type="button"
+                className='bg-sky-500 text-white p-2  uppercase  font-medium w-full hover:bg-sky-700 transition-colors'
+                onClick={e => añadirProducto(_id)}
+            >
+                 Añadir al Carrito
+            </button> */}
         </div>
     );
 };
